@@ -88,11 +88,17 @@ DATABASES = {
         'NAME': 'morsitadb',
         'USER': 'morsitadb_user',
         'PASSWORD': 'kkT0J6P8M3sKIYGsAwi8rOaagXY3U0gT',
-        'HOST': 'dpg-d1pqllc9c44c738tgos0-a',
+        'HOST': 'dpg-d1pqllc9c44c738tgos0-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

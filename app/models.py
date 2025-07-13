@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class MyUSER(AbstractUser):
@@ -18,7 +19,7 @@ class Restaurant (models.Model):
     phone=models.CharField(max_length=15)
     address=models.CharField(max_length=255)
     pincode=models.IntegerField()
-    logo=models.ImageField(upload_to='restaurant_logos/')
+    logo = CloudinaryField('image', folder='restaurant_logos')
 
     def __str__(self):
         return self.restaurant_name
@@ -48,7 +49,7 @@ class MenuItem (models.Model):
     item_name=models.CharField(max_length=255)
     description=models.CharField(max_length=255)
     price=models.DecimalField(max_digits=6,decimal_places=2)
-    item_image=models.ImageField(upload_to='menu_images/')
+    item_image = CloudinaryField('image', folder='menu_images')
     category=models.CharField(max_length=255)
     is_available=models.BooleanField(default=True)
 
