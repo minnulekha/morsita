@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'morsitadb',
         'USER': 'morsitadb_user',
-        'PASSWORD': 'postgresql://morsitadb_user:kkT0J6P8M3sKIYGsAwi8rOaagXY3U0gT@dpg-d1pqllc9c44c738tgos0-a/morsitadb',
+        'PASSWORD': 'kkT0J6P8M3sKIYGsAwi8rOaagXY3U0gT',
         'HOST': 'dpg-d1pqllc9c44c738tgos0-a',
         'PORT': '5432',
     }
