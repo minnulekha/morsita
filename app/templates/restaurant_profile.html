@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurant Profile - Morsita</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/reshome.css' %}">
+</head>
+<body>
+
+  <nav class="navbar custom-navbar d-flex justify-content-between align-items-center px-4">
+    <div class="d-flex align-items-center">
+    <a href="{% url 'redirect_home' %}" class="text-decoration-none d-flex align-items-center">
+        <img src="{% static 'images/Morsita_logo.png' %}" alt="Morsita Logo" class="me-2">
+        <h4 class="mb-0 fw-bold" style="color: #8B4513 !important;">Morsita</h4>
+    </a>
+    </div>
+    <div class="d-flex align-items-center">
+      <span class="me-3">Welcome, <strong>{{ restaurant.restaurant_name }}</strong></span>
+      <a href="logout" class="btn btn-outline-dark btn-sm">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Navigation Tabs -->
+  <ul class="nav nav-tabs justify-content-center my-4">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'addmenu' %}">Add Menu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_items' %}">View Items</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'restaurant_orders' %}">Orders</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'restaurant_profile' %}">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'restaurant_settings' %}">Settings</a>
+    </li>
+  </ul>
+
+
+<div class="container mt-4">
+  <h4 class="text-center text-brown mb-4">Restaurant Profile</h4>
+
+  <div class="card shadow p-4">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="{{ restaurant.logo.url }}" class="img-fluid rounded" style="max-height: 200px;" alt="Restaurant Logo">
+      </div>
+      <div class="col-md-8">
+        <h5>{{ restaurant.restaurant_name }}</h5>
+        <p><strong>Owner:</strong> {{ restaurant.owner_name }}</p>
+        <p><strong>Email:</strong> {{ restaurant.restaurant_id.email }}</p>
+        <p><strong>Phone:</strong> {{ restaurant.phone }}</p>
+        <p><strong>Address:</strong> {{ restaurant.address }} - {{ restaurant.pincode }}</p>
+        <p><strong>Username:</strong> {{ restaurant.restaurant_id.username }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

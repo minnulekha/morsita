@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Profile - Morsita</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/reshome.css' %}">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar custom-navbar d-flex justify-content-between align-items-center px-4">
+    <div class="d-flex align-items-center">
+      <a href="{% url 'redirect_home' %}" class="text-decoration-none d-flex align-items-center">
+        <img src="{% static 'images/Morsita_logo.png' %}" alt="Morsita Logo" class="me-2">
+        <h4 class="mb-0 fw-bold" style="color: #8B4513 !important;">Morsita</h4>
+      </a>
+    </div>
+    <div class="d-flex align-items-center">
+      <span class="me-3">Welcome, <strong>{{ customer.customer_id.first_name }}</strong></span>
+      <a href="{% url 'logout' %}" class="btn btn-outline-dark btn-sm">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Optional Tabs (can be extended) -->
+ <ul class="nav nav-tabs justify-content-center my-4">
+  <li class="nav-item">
+    <a class="nav-link " href="{% url 'customer_home_page' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Orders</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'customer_profile' %}">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'customer_settings' %}">Settings</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'view_cart' %}">Cart</a>
+  </li>
+</ul>
+
+  <!-- Profile Card -->
+  <div class="container mt-4">
+    <h4 class="text-center text-brown mb-4">Customer Profile</h4>
+
+    <div class="card shadow p-4">
+      <div class="row">
+        
+        <div class="col-md-8">
+          <h5>{{ customer.customer_id.first_name }} {{ customer.customer_id.last_name }}</h5>
+          <p><strong>Username:</strong> {{ customer.customer_id.username }}</p>
+          <p><strong>Email:</strong> {{ customer.customer_id.email }}</p>
+          <p><strong>Phone:</strong> {{ customer.phone }}</p>
+          <p><strong>Address:</strong> {{ customer.address }} - {{ customer.pincode }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

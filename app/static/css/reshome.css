@@ -1,0 +1,69 @@
+body {
+      background-color: #fffaf7;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .custom-navbar {
+      background-color: #f7d6c2;
+      padding: 15px;
+    }
+
+    .custom-navbar img {
+      height: 50px;
+    }
+
+    .nav-tabs {
+      background-color: #fff;
+      border-bottom: none;
+    }
+
+    .nav-tabs .nav-link {
+      color: #8E5E3B;
+      font-weight: 500;
+      border-radius: 8px;
+      margin: 0 10px;
+      background-color: #f7ede8;
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: #eda06b;
+      color: white;
+    }
+
+    .menu-card {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    .menu-card img {
+      border-radius: 10px;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
+
+    .btn-sm {
+      font-size: 0.85rem;
+      border-radius: 10px;
+    }
+
+    
+    
+.btn-submit {
+  background-color: #eda06b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-submit:hover {
+  background-color: #e88c58;
+  color: white;
+}
+
+

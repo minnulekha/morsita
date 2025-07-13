@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Registration - Morsita</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+
+<div class="register-wrapper d-flex flex-column flex-lg-row">
+  <!-- Left: Form -->
+  <div class="register-form-container p-5 col-lg-6">
+    <div class="form-content">
+      <h2 class="mb-4 text-center text-lg-start">Customer Registration</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+          <input type="text" name="firstname" class="form-control" placeholder="Firstname" required>
+          <label>First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" name="lastname" class="form-control" placeholder="Lastname" required>
+          <label>Last Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" name="email" class="form-control" placeholder="Email" required>
+          <label>Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" name="address" class="form-control" placeholder="Address" required>
+          <label>Address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" name="pincode" class="form-control" placeholder="Pincode" required>
+          <label>Pincode</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" name="phone" class="form-control" placeholder="Phone" required>
+          <label>Phone Number</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
+          <label>Username</label>
+        </div>
+        <div class="form-floating mb-4">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+          <label>Password</label>
+        </div>
+        <button type="submit" class="btn register-btn w-100">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Right: Background Image -->
+  <div class="register-image col-lg-6 d-none d-lg-block">
+    <img src="{% static 'images/card3.png' %}" alt="Morsita Registration" class="img-fluid w-100 h-100 object-fit-cover">
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

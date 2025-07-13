@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help & Support | Morsita</title>
+  <link rel="stylesheet" href="{% static 'css/help.css' %}">
+</head>
+<body>
+  <!-- Hero -->
+  <div class="about-hero">
+    <h1>Help & Support</h1>
+    <p>Let’s take a step ahead and help you better.</p>
+  </div>
+
+  <!-- Layout -->
+  <div class="about-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+      <li><a href="#partner" class="sidebar-link">Partner Onboarding</a></li>
+<li><a href="#legal" class="sidebar-link">Legal</a></li>
+<li><a href="#faqs" class="sidebar-link">FAQs</a></li>
+
+
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <section class="content">
+      <!-- Partner Onboarding -->
+      <div class="section" id="partner">
+        <h2>Partner Onboarding</h2>
+        <div class="faq">
+          <button class="faq-toggle">I want to partner my restaurant with Morsita</button>
+          <div class="faq-answer">Partner with us<br><strong><a href="mailto:support@morsita.in">SEND AN EMAIL</a></strong></div>
+
+          <button class="faq-toggle">What documents are needed to list my restaurant?</button>
+          <div class="faq-answer">
+            <ul>
+              <li>FSSAI Licence OR FSSAI Acknowledgement</li>
+              <li>Pan Card</li>
+              <li>GSTIN Certificate</li>
+              <li>Cancelled Cheque OR Bank Passbook</li>
+              <li>Menu</li>
+            </ul>
+          </div>
+
+          <button class="faq-toggle">I want to opt-out from Google reserve</button>
+          <div class="faq-answer"><a href="mailto:support@morsita.in">Send an email</a></div>
+
+          <button class="faq-toggle">How long does it take to go live?</button>
+          <div class="faq-answer">7–10 working days after document verification.</div>
+
+          <button class="faq-toggle">What is the one-time onboarding fee?</button>
+          <div class="faq-answer">Deducted from your payouts after you start receiving orders.</div>
+
+          <button class="faq-toggle">Who should I contact for onboarding help?</button>
+          <div class="faq-answer">Call: 080-67466777 or email <a href="mailto:partnersupport@morsita.in">partnersupport@morsita.in</a></div>
+
+          <button class="faq-toggle">Do I need FSSAI licence?</button>
+          <div class="faq-answer">Yes. You can use the acknowledgement number during registration.</div>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="section" id="legal">
+        <h2>Legal</h2>
+        <div class="faq">
+          <button class="faq-toggle">Terms of Use</button>
+          <div class="faq-answer">By using our platform, you agree to our terms. Read More.</div>
+
+          <button class="faq-toggle">Privacy Policy</button>
+          <div class="faq-answer">Your data is safe with us. Please do not share OTPs or passwords. Read More.</div>
+
+          <button class="faq-toggle">Cancellations & Refunds</button>
+          <div class="faq-answer">Orders may be canceled within 1 minute. Read our policy for more details. Read More.</div>
+
+          <button class="faq-toggle">On-Time Delivery Terms</button>
+          <div class="faq-answer">Covers your usage of our punctual delivery promise. Read More.</div>
+        </div>
+      </div>
+
+      <!-- FAQs -->
+      <div class="section" id="faqs">
+        <h2>FAQs</h2>
+        <div class="faq">
+          <button class="faq-toggle">What is Morsita Customer Care Number?</button>
+          <div class="faq-answer">
+            We use chat-based support. <a href="mailto:support@morsita.in">support@morsita.in</a><br><strong>⚠️ Do not share OTPs or bank info with anyone.</strong>
+          </div>
+
+          <button class="faq-toggle">I want to explore careers with Morsita</button>
+          <div class="faq-answer">Join our team! <a href="mailto:careers@morsita.in">SEND AN EMAIL</a></div>
+
+          <button class="faq-toggle">I want to provide feedback</button>
+          <div class="faq-answer"><a href="mailto:feedback@morsita.in">SEND AN EMAIL</a></div>
+
+          <button class="faq-toggle">Can I edit my order?</button>
+          <div class="faq-answer">Only before the restaurant begins preparing it. Contact chat support.</div>
+
+          <button class="faq-toggle">I want to cancel my order</button>
+          <div class="faq-answer">If the order isn't placed yet, we can cancel. Call: 080-67466729</div>
+
+          <button class="faq-toggle">Will Morsita be accountable for food quality?</button>
+          <div class="faq-answer">Restaurants are responsible. We’ll forward your feedback.</div>
+
+          <button class="faq-toggle">Is there a minimum order value?</button>
+          <div class="faq-answer">No. Order any amount you like.</div>
+
+          <button class="faq-toggle">Do you charge for delivery?</button>
+          <div class="faq-answer">Fees vary per city & restaurant. Displayed before checkout.</div>
+
+          <button class="faq-toggle">How long is delivery time?</button>
+          <div class="faq-answer">It depends on restaurant and location. Estimate is shown at checkout.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // FAQ toggle
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('open');
+        btn.nextElementSibling.classList.toggle('show');
+      });
+    });
+  </script>
+</body>
+</html>

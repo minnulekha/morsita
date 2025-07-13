@@ -1,0 +1,56 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #F9E8DD;
+  margin: 0;
+  padding: 0;
+}
+
+.about-card {
+  background-color: white;
+  border-radius: 16px;
+}
+
+.about-img img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.about-content {
+  background-color: #fff;
+  color: #8E5E3B;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.highlight {
+  color: #FFC8A2;
+}
+
+.about-brief {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.about-more {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #5c4331;
+}
+
+.read-more-btn {
+  background-color: #FFC8A2;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  font-weight: 500;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #e7a579;
+}

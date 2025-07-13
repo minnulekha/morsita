@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart - Morsita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/reshome.css' %}">
+  <style>
+    body {
+      background-color: #fff8f4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .cart-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .cart-item-img {
+      width: 100px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .cart-summary {
+      border-top: 2px solid #eee;
+      padding-top: 20px;
+      margin-top: 30px;
+    }
+
+    .cart-total {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #8E5E3B;
+    }
+
+    .btn-checkout {
+      background-color: #eda06b;
+      color: white;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .btn-checkout:hover {
+      background-color: #e88c58;
+    }
+
+    .navbar-brand {
+      color: #8B4513 !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar custom-navbar d-flex justify-content-between align-items-center px-4">
+  <div class="d-flex align-items-center">
+    <a href="{% url 'redirect_home' %}" class="text-decoration-none d-flex align-items-center">
+        <img src="{% static 'images/Morsita_logo.png' %}" alt="Morsita Logo" class="me-2">
+        <h4 class="mb-0 fw-bold" style="color: #8B4513 !important;">Morsita</h4>
+    </a>
+  </div>
+  <div class="d-flex align-items-center">
+    <span class="me-3">Welcome, <strong>{{ customer.first_name }}</strong></span>
+    <a href="{% url 'logout' %}" class="btn btn-outline-dark btn-sm">Logout</a>
+  </div>
+</nav>
+
+<!-- Nav Tabs -->
+<ul class="nav nav-tabs justify-content-center my-4">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'customer_home_page' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'customer_orders' %}">Orders</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'customer_profile' %}">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'customer_settings' %}">Settings</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'view_cart' %}">Cart</a>
+  </li>
+</ul>
+
+<div class="container">
+  {% if cart_items %}
+    {% for item in cart_items %}
+      <div class="d-flex justify-content-between align-items-center border-bottom py-3">
+        <div class="flex-grow-1">
+          <h6 class="mb-1">{{ item.menu_item.item_name }}</h6>
+          <p class="text-muted small mb-1">{{ item.menu_item.category }}</p>
+          <p class="mb-1">
+            ₹{{ item.menu_item.price }} × 
+            <input type="number" class="form-control d-inline-block quantity-field" data-id="{{ item.id }}" value="{{ item.quantity }}" min="1" style="width: 60px;">
+            = ₹<span class="item-total" data-id="{{ item.id }}">{{ item.total_price }}</span>
+          </p>
+        </div>
+        <div class="text-end">
+          <img src="{{ item.menu_item.item_image.url }}" class="cart-item-img mb-2"><br>
+          <button class="btn btn-sm btn-danger delete-item" data-id="{{ item.id }}">Remove</button>
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="cart-summary mt-4">
+      <div class="d-flex justify-content-between cart-total">
+        <span>Total</span>
+        <span id="grandTotal">₹{{ grand_total }}</span>
+      </div>
+      <div class="text-end mt-3">
+        <form method="post" action="{% url 'place_order' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-checkout">Place Order</button>
+        </form>
+      </div>
+    </div>
+  {% else %}
+    <p class="text-center text-muted">Your cart is empty.</p>
+  {% endif %}
+</div>
+
+<script>
+document.querySelectorAll('.quantity-field').forEach(input => {
+  input.addEventListener('change', () => {
+    const itemId = input.dataset.id;
+    const qty = parseInt(input.value);
+    if (qty < 1) return;
+
+    fetch(`/cart/update/${itemId}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}'
+      },
+      body: JSON.stringify({ quantity: qty })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.total !== undefined) {
+        document.querySelector(`.item-total[data-id="${itemId}"]`).innerText = data.total;
+        updateGrandTotal();
+      }
+    });
+  });
+});
+
+document.querySelectorAll('.delete-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const itemId = btn.dataset.id;
+    fetch(`/cart/delete/${itemId}/`, {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}'
+      }
+    })
+    .then(res => res.json())
+    .then(() => location.reload());
+  });
+});
+
+function updateGrandTotal() {
+  let total = 0;
+  document.querySelectorAll('.item-total').forEach(span => {
+    total += parseFloat(span.innerText);
+  });
+  document.getElementById('grandTotal').innerText = '₹' + total.toFixed(2);
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

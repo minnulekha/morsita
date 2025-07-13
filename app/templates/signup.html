@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morsita | Sign Up</title>
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+  <div class="signup-wrapper">
+    <!-- Left: Sign Up Options -->
+    <div class="signup-left">
+      <img src="{% static 'images/Morsita_logo.png' %}" alt="Morsita Logo" class="logo">
+      <h2>Sign Up to Morsita</h2>
+      <p class="subtext">Choose your role to begin</p>
+
+      <div class="card-grid">
+        <a href="restaurant" class="signup-card">
+          <h3>🍽️ Restaurant</h3>
+          <p>Serve food, delight customers.</p>
+        </a>
+        <a href="{% url 'customer' %}" class="signup-card">
+          <h3>👩‍🍳 Customer</h3>
+          <p>Discover food you’ll love.</p>
+        </a>
+        <a href="delivery" class="signup-card">
+          <h3>🛵 Delivery Partner</h3>
+          <p>Deliver joy — and fresh meals.</p>
+        </a>
+      </div>
+
+      <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+
+    <!-- Right: Background Image -->
+    <div class="signup-right">
+      <img src="{% static 'images/card3.png' %}" alt="Signup Background" />
+    </div>
+  </div>
+</body>
+</html>
+
+

@@ -1,0 +1,118 @@
+/* Soft and gentle navbar */
+.custom-navbar {
+  background-color: #F9E8DD; /* Ivory White */
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Brand name styling */
+.brand-name {
+  color: #8E5E3B; /* Mocha Brown */
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* Navbar links */
+.custom-navbar .nav-link {
+  color: #8E5E3B;
+  margin: 0 0.6rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Nav link hover (soft peach glow) */
+.custom-navbar .nav-link:hover {
+  color: #E8A79E; /* Rosy Gold */
+}
+
+/* Login Button - soft outline */
+.custom-navbar .btn-outline-light {
+  border-color: #E8A79E;
+  color: #8E5E3B;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.custom-navbar .btn-outline-light:hover {
+  background-color: #F9E8DD; /* Misty Beige */
+  color: #8E5E3B;
+  border-color: #E8A79E;
+}
+
+/* Sign Up Button - soft peach tone */
+.custom-navbar .btn-light {
+  background-color: #FFC8A2; /* Soft Peach */
+  color: #8E5E3B;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-navbar .btn-light:hover {
+  background-color: #F2B5D4; /* Blossom Pink */
+  color: #8E5E3B;
+}
+
+/* Logo round and soft */
+.custom-navbar img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Body background to keep the theme soft */
+body {
+  background-color: #FFF7EF; /* Soft Ivory */
+}
+/* Hero image styling */
+.hero-img {
+  height: 400px;
+  object-fit: cover;
+  filter: brightness(85%);
+}
+
+/* Hero text styles */
+.fast-hero-text {
+  color: #8E5E3B;
+  text-shadow: 1px 1px 2px #f5e5d4;
+}
+
+.fast-para-text {
+  color: #8E5E3B;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-shadow: 0.5px 0.5px 1px #f5e5d4;
+}
+
+/* Browse button */
+.browse-btn {
+  background-color: #FFC8A2;
+  color: #8E5E3B;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.browse-btn:hover {
+  background-color: #F2B5D4;
+  color: #8E5E3B;
+}
+
+/* Footer section */
+.footer-section {
+  background-color: #F9E8DD;
+  color: #8E5E3B;
+  border-top: 1px solid #e8cfc0;
+}
+
+.footer-brand {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: #8E5E3B;
+}

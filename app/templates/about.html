@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Morsita</title>
+  <link rel="stylesheet" href="{% static 'css/about.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container my-5">
+  <div class="about-card d-flex flex-column flex-lg-row shadow-lg rounded-4 overflow-hidden">
+    
+    <!-- Left: Image -->
+    <div class="about-img col-lg-6">
+      <img src="{% static 'images/card4.png' %}" alt="About Morsita" class="img-fluid w-100 h-100 object-fit-cover">
+    </div>
+
+    <!-- Right: Text -->
+    <div class="about-content p-4 col-lg-6 d-flex flex-column justify-content-center">
+      <h1 class="about-title">About <span class="highlight">Morsita</span></h1>
+      <p class="about-brief">
+        Morsita delivers more than food — we deliver moments. Curated dishes, trusted delivery, and love in every order.
+      </p>
+      <div id="moreAbout" class="about-more collapse">
+        <p>
+          At Morsita, we bring people together through food. Whether you're ordering from your favorite local spot or trying something new, our mission is to make every bite feel like home. With a user-friendly platform, reliable delivery, and handpicked restaurant partners, we're redefining comfort food for the digital age.
+        </p>
+        <p>
+          We are committed to supporting small food businesses and empowering delivery partners with flexible opportunities. With every order, you're helping fuel dreams and serve delight — one plate at a time.
+        </p>
+      </div>
+      <button class="btn read-more-btn mt-3" data-bs-toggle="collapse" data-bs-target="#moreAbout" aria-expanded="false" aria-controls="moreAbout">
+        Read More
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

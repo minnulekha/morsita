@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Morsita | Login</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <div class="login-wrapper">
+    <!-- Left: Login Form -->
+    <div class="login-left">
+      <img src="{% static 'images/Morsita_logo.png' %}" alt="Morsita Logo" class="logo">
+      <h2>Welcome Back</h2>
+
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username" required />
+        <input type="password" name="password" placeholder="Enter Password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <p class="signup-link">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+
+    <!-- Right: Image Panel -->
+    <div class="login-right">
+      <img src="{% static 'images/card3.png' %}" alt="Login Background" />
+    </div>
+  </div>
+</body>
+</html>
