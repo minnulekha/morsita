@@ -17,6 +17,7 @@ import cloudinary.uploader
 import cloudinary.api
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -82,16 +83,19 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'morsitadb',
-        'USER': 'morsitadb_user',
-        'PASSWORD': 'kkT0J6P8M3sKIYGsAwi8rOaagXY3U0gT',
-        'HOST': 'dpg-d1pqllc9c44c738tgos0-a.oregon-postgres.render.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'morsita@db07',
+        'HOST': 'db.wkidvtnetgaubflnnwlc.supabase.co',
         'PORT': '5432',
     }
 }
+
 
 # DATABASES = {
 #     'default': {
