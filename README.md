@@ -38,7 +38,7 @@ This project was developed as part of my Full Stack Python Development course to
 
 ## 📸 Screenshots
 
-<img width="851" height="567" alt="Home-1" src="https://github.com/user-attachments/assets/9ee3ec88-bcdb-42f6-a697-e05143f6a024" />
+<img width="865" height="567" alt="Home-1" src="https://github.com/user-attachments/assets/9ee3ec88-bcdb-42f6-a697-e05143f6a024" />
 <img width="865" height="567" alt="SignUp" src="https://github.com/user-attachments/assets/ba53151a-17a4-4bcf-8060-fcfa033bb38c" />
 <img width="866" height="568" alt="Customer Home" src="https://github.com/user-attachments/assets/237ab6c6-400e-4750-9037-d98ef1514eba" />
 <img width="866" height="568" alt="Menu Restaurant" src="https://github.com/user-attachments/assets/26050d1a-88c9-49ca-ae0c-d7682c839221" />
